@@ -29,7 +29,7 @@ const SignUp = ({ navigation }) => {
 
       setLoading(true);
 
-      const response = await axios.post('http://192.168.1.3:3000/auth/signup', {
+      const response = await axios.post('http://192.168.139.140:3000/auth/signup', {
         name,
         email,
         password,

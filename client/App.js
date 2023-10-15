@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from './component/ScreenPage';
 import SignUp from './component/SignUP-IN/SignUp';
 import SignIn from './component/SignUP-IN/SignIn';
+import PlayerHome from './component/PlayerHome';
 
 const Stack = createStackNavigator(); 
 
@@ -15,11 +16,12 @@ export default function App() {
       <StatusBar style="auto" />
       <Stack.Navigator  
       screenOptions={{ headerShown: false  }}
-    initialRouteName="SignUp"
+    initialRouteName="PlayerHome"
     >        
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen}/>
         <Stack.Screen name="SignUp" component={SignUp}/>
         <Stack.Screen name="SignIn" component={SignIn}/>
+        <Stack.Screen name="PlayerHome" component={PlayerHome}/>
 
       </Stack.Navigator>
     </NavigationContainer>
