@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,39 +7,41 @@ import {
   StyleSheet,
   Alert,
   ActivityIndicator,
-} from 'react-native';
-import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+} from "react-native";
+import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 const Signin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const navigation = useNavigation()
+  const [error, setError] = useState("");
+  const navigation = useNavigation();
 
   const handleSubmit = async () => {
     try {
       setLoading(true);
 
-      const response = await axios.post('http://192.168.139.140:3000/auth/signin', {
-        email,
-        password,
-        role: 'parent', 
-      });
+      const response = await axios.post(
+        "http://192.168.139.140:3000/auth/signin",
+        {
+          email,
+          password,
+          role: "parent",
+        }
+      );
 
       const data = response.data;
 
-      if (data.role === 'player') {
-        navigation.navigate('HomePage'); 
-      } else if (data.role === 'parent') {
-        console.log('first')
-        navigation.navigate('HomePage');
+      if (data.role === "player") {
+        navigation.navigate("HomePage");
+      } else if (data.role === "parent") {
+        console.log("first");
+        navigation.navigate("HomePage");
       }
-
     } catch (error) {
-      console.error('An error occurred:', error);
-      setError('An error occurred. Please try again later.');
+      console.error("An error occurred:", error);
+      setError("An error occurred. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -88,50 +90,50 @@ const Signin = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   formContainer: {
-    width: '80%',
+    width: "80%",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
-    textAlign: 'center',
+    textAlign: "center",
   },
   input: {
     height: 40,
-    borderColor: 'black',
+    borderColor: "black",
     borderWidth: 1,
     borderRadius: 5,
     marginBottom: 10,
     paddingLeft: 10,
   },
   button: {
-    backgroundColor: 'red',
+    backgroundColor: "red",
     height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 5,
     marginBottom: 10,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
   },
   forgotPasswordButton: {
     marginTop: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   forgotPasswordText: {
     fontSize: 16,
-    textDecorationLine: 'underline',
+    textDecorationLine: "underline",
   },
   error: {
-    color: 'red',
+    color: "red",
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 

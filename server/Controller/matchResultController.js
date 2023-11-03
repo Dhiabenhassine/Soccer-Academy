@@ -4,7 +4,7 @@ module.exports = {
   getResult: async (req, res) => {
     try {
       const results = await MatchResult.findAll();
-      res.status(200).json(results); // Use 200 for success, not 201
+      res.status(200).json(results); 
     } catch (err) {
       console.log("Error:", err);
       res.status(500).json(err);
