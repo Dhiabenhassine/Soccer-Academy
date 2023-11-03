@@ -8,8 +8,8 @@ const WelcomeScreen = () => {
 
   return (
     <Onboarding
-      onSkip={() => navigation.navigate("Signin")}
-      onDone={() => navigation.navigate("Signup")}
+      onSkip={() => navigation.navigate("SignIn")}
+      onDone={() => navigation.navigate("SignUp")}
       pages={[
         {
           image: (
@@ -50,7 +50,7 @@ const WelcomeScreen = () => {
               source={require("../assets/sergio03.jpg")}
             >
               <Text style={[styles.coaches, { color: "black" }]}>
-                Welcome Coaches
+                Welcome Parents
               </Text>
             </ImageBackground>
           ),
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    color: "black", // Change 'white' to 'black' here
+    color: "black",
     position: "absolute",
     top: "75%",
     zIndex: 1,

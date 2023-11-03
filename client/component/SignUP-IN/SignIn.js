@@ -50,10 +50,10 @@ const Signin = () => {
   return (
     <View style={styles.container}>
       <View style={styles.formContainer}>
-        <Text style={styles.title}>Log in to Exclusive</Text>
+        <Text style={styles.title}>Log in your Account</Text>
         <TextInput
           style={styles.input}
-          placeholder="Email or Phone Number"
+          placeholder="Email"
           placeholderTextColor="black"
           onChangeText={(text) => setEmail(text)}
         />

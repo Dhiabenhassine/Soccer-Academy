@@ -12,7 +12,7 @@ const MatcheDetail = () => {
       try {
         const { matchId } = route.params;
         const response = await axios.get(
-          `http://192.168.1.109:3000/result/get/${matchId}`
+          `http://192.168.1.8:3000/result/get/${matchId}`
         );
         const matchDetails = response.data;
 
@@ -36,8 +36,8 @@ const MatcheDetail = () => {
       <View style={styles.content}>
         <Text style={styles.matchTitle}>Match {route.params.matchId}</Text>
         <Text style={styles.matchResult}>
-          Winner: {result.winner}
-          Home Goals: {result.homeTeamGoals}
+          Winner: {result.winner} - {""}
+          Home Goals: {result.homeTeamGoals} - {""}
           Away Goals: {result.awayTeamGoals}
         </Text>
       </View>

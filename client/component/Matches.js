@@ -6,6 +6,7 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
@@ -21,10 +22,8 @@ const Matches = () => {
   useEffect(() => {
     async function fetchMatches() {
       try {
-        const matchResponse = await axios.get(
-          "http://192.168.1.109:3000/match/"
-        );
-        const teamResponse = await axios.get("http://192.168.1.109:3000/team/");
+        const matchResponse = await axios.get("http://192.168.1.8:3000/match/");
+        const teamResponse = await axios.get("http://192.168.1.8:3000/team/");
 
         setMatches(matchResponse.data.matches);
         const teamname = {};
@@ -86,38 +85,42 @@ const Matches = () => {
             <Picker.Item label="Sunday" value="Sunday" />
           </Picker>
         </View>
-        <FlatList
-          data={filterMatches()}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.matchCard}
-              onPress={() => {
-                navigation.navigate("MatcheDetail", { matchId: item.id });
-              }}
-            >
-              <Text style={styles.matchId}>Match {item.id}</Text>
-              <Text style={styles.dateAndTime}>
-                Date: {new Date(item.dateAndTime).toLocaleDateString()}
-              </Text>
-              <Text style={styles.time}>
-                Time: {new Date(item.dateAndTime).toLocaleTimeString()}
-              </Text>
-              <Text style={styles.teamName}>
-                Home Team:{" "}
-                {teams[item.homeTeamId]
-                  ? teams[item.homeTeamId].teamName
-                  : "Team Not Found"}
-              </Text>
-              <Text style={styles.teamName}>
-                Away Team:{" "}
-                {teams[item.awayTeamId]
-                  ? teams[item.awayTeamId].teamName
-                  : "Team Not Found"}
-              </Text>
-            </TouchableOpacity>
-          )}
-        />
+        <ScrollView>
+          <View style={{ maxHeight: 600 }}>
+            <FlatList
+              data={filterMatches()}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.matchCard}
+                  onPress={() => {
+                    navigation.navigate("MatcheDetail", { matchId: item.id });
+                  }}
+                >
+                  <Text style={styles.matchId}>Match {item.id}</Text>
+                  <Text style={styles.dateAndTime}>
+                    Date: {new Date(item.dateAndTime).toLocaleDateString()}
+                  </Text>
+                  <Text style={styles.time}>
+                    Time: {new Date(item.dateAndTime).toLocaleTimeString()}
+                  </Text>
+                  <Text style={styles.teamName}>
+                    Home Team:{" "}
+                    {teams[item.homeTeamId]
+                      ? teams[item.homeTeamId].teamName
+                      : "Team Not Found"}
+                  </Text>
+                  <Text style={styles.teamName}>
+                    Away Team:{" "}
+                    {teams[item.awayTeamId]
+                      ? teams[item.awayTeamId].teamName
+                      : "Team Not Found"}
+                  </Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        </ScrollView>
       </View>
     </ImageBackground>
   );

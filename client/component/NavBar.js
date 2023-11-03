@@ -18,24 +18,29 @@ const Navbar = () => {
         <Text style={styles.navLinkText}>Home</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.navLink}>
-        <Icon name="history" size={25} color="white" />
-        <Text style={styles.navLinkText}>History</Text>
+        <Icon
+          name="group"
+          size={25}
+          color="white"
+          onPress={() => navigation.navigate("Team")}
+        />
+        <Text style={styles.navLinkText}>team</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.navLink}>
         <Icon
-          name="shopping-cart"
+          name="plus"
           size={25}
           color="white"
-          onPress={() => navigation.navigate("")}
+          onPress={() => navigation.navigate("CreateTeam")}
         />
-        <Text style={styles.navLinkText}>Order</Text>
+        <Text style={styles.navLinkText}>Add</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.navLink}>
         <Icon
           name="user"
           size={25}
           color="white"
-          onPress={() => navigation.navigate("")}
+          onPress={() => navigation.navigate("Profile")}
         />
         <Text style={styles.navLinkText}>Profile</Text>
       </TouchableOpacity>

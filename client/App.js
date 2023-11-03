@@ -9,11 +9,13 @@ import SignIn from "./component/SignUP-IN/SignIn";
 import Matches from "./component/Matches";
 import MatcheDetail from "./component/MatcheDetail";
 import Navbar from "./component/NavBar";
+import Team from "./component/Team/Team";
+import CreateTeam from "./component/Team/CreateTeam";
+import Profile from "./component/Profile/Profile";
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    /*
     <NavigationContainer>
       <StatusBar style="auto" />
       <Stack.Navigator
@@ -25,23 +27,11 @@ export default function App() {
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Matches" component={Matches} />
         <Stack.Screen name="MatcheDetail" component={MatcheDetail} />
-      </Stack.Navigator>
-    </NavigationContainer>*/
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Matches"
-          component={Matches}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="MatcheDetail"
-          component={MatcheDetail}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="Team" component={Team} />
+        <Stack.Screen name="CreateTeam" component={CreateTeam} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
       <Navbar />
-      {Navbar}
     </NavigationContainer>
   );
 }
