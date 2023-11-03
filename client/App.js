@@ -20,7 +20,7 @@ export default function App() {
       <StatusBar style="auto" />
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="Matches"
+        initialRouteName="Profile"
       >
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="SignUp" component={SignUp} />
